@@ -1,0 +1,373 @@
+<!-- Hero Section -->
+<section class="hero overflow-hidden position-relative">
+    <div class="row justify-content-between mt-5">
+      <!-- Content -->
+      <article class="content col-12 col-lg-6 p-4 text-center z-2 text-lg-start">
+        <span class="fs-1 moon-font">Up to 30% Off</span>
+        <h1>Get Your  Products <br />With The Best Price</h1>
+        <a
+          routerLink="/shop"
+          
+          class="btn btn-main rounded-5 px-5 py-3 mt-4"
+          >Shop Now <i class="fa-solid fa-arrow-right-long ms-2"></i
+        ></a>
+      </article>
+      <!-- Image -->
+      <figure class="col-12 col-lg-6 mb-0 text-center text-lg-end z-2">
+        <img
+          src="../../assets/images/home-page/R (1).png"
+          alt="Hero Girl"
+          class="w-100"
+        />
+      </figure>
+    </div>
+    <!-- xstar shape -->
+    <img
+      src="../../assets/images/home-page/xstar.png"
+      alt="xstar shape"
+      class="position-absolute"
+    />
+    <!-- Frame Dots -->
+    <img
+      src="../../assets/images/home-page/frame-2.png"
+      alt="Frame Dots"
+      class="position-absolute"
+    />
+    <!-- Top Right Shape (half cyrcle) -->
+    <img
+      src="../../assets/images/home-page/bg-shape.png"
+      alt="Top Shape"
+      class="position-absolute top-0 end-0"
+    />
+    <!-- Frame Arrow that im middle -->
+    <img
+      src="../../assets/images/frame-arrow-shape.png"
+      alt="Frame Arrow"
+      class="position-absolute translate-middle-y top-50 z-1"
+    />
+    <!-- Shape image that in bottom right -->
+    <img
+      src="../../assets/images/home-page/bg-shape2.png"
+      alt="Shape"
+      class="position-absolute bottom-0 end-0 z-1"
+    />
+    <!-- Books image that in bottom left -->
+    <img
+      src="../../assets/images/home-page/p12.png"
+      alt="Books"
+      class="position-absolute bottom-0 start-0 z-1 imgt"
+      width="400"
+    />
+    <!-- Bottom Center Shape -->
+    <img
+      src="../../assets/images/home-page/frame-2.png"
+      alt="Frame Dots Bottom"
+      class="position-absolute z-1 start-50 translate-middle-x"
+    />
+</section>
+<!-- Features Section  -->
+<section class="features p-3 container">
+  <article class="p-3 row rounded-3">
+    <!-- Feature -->
+    <div class="feature col-12 col-md-6 mb-4">
+      <div class="row align-items-center">
+        <figure class="col-4 mb-0">
+          <i class="fa-solid fa-truck-fast"></i>
+        </figure>
+        <div class="content col-8 ms-2">
+          <h4 class="fw-bold">Return & refund</h4>
+          <p class="mb-0">Money back guarantee</p>
+        </div>
+      </div>
+    </div>
+    <!-- Feature -->
+    <div class="feature col-12 col-md-6 mb-4">
+      <div class="row align-items-center">
+        <figure class="col-4 mb-0">
+          <i class="fa-solid fa-shield-halved"></i>
+        </figure>
+        <div class="content col-8 ms-2">
+          <h4 class="fw-bold">Secure Payment</h4>
+          <p class="mb-0">30% off by subscribing</p>
+        </div>
+      </div>
+    </div>
+    <!-- Feature -->
+    <div class="feature col-12 col-md-6 mb-4 mb-md-0">
+      <div class="row align-items-center">
+        <figure class="col-4 mb-0">
+          <i class="fa-solid fa-headset"></i>
+        </figure>
+        <div class="content col-8 ms-2">
+          <h4 class="fw-bold">Quality Support</h4>
+          <p class="mb-0">Always online 24/7</p>
+        </div>
+      </div>
+    </div>
+    <!-- Feature -->
+    <div class="feature col-12 col-md-6">
+      <div class="row align-items-center">
+        <figure class="col-4 mb-0">
+          <i class="fa-solid fa-tags"></i>
+        </figure>
+        <div class="content col-8 ms-2">
+          <h4 class="fw-bold">Daily Offers</h4>
+          <p class="mb-0">20% off by subscribing</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Shop Section (Featured product) -->
+<section class="shop-sec p-3">
+  <!-- Head Section -->
+  <div class="d-flex justify-content-between">
+    <h2 class="fs-1 fw-bold">Featured Products</h2>
+    <a
+      routerLink="/shop"
+      (click)="scrollToTop()"
+      class="explore-btn btn rounded-5 me-2"
+      >Explore More <i class="fa-solid fa-arrow-right-long ms-2"></i
+    ></a>
+  </div>
+  <!-- Body Section -->
+  <article class="books">
+    <div class="tab-content" id="myTabContent">
+     
+      <div
+        class="tab-pane fade show active"
+        id="fpage-tab-pane"
+        role="tabpanel"
+        aria-labelledby="fpage-tab"
+        tabindex="0"
+
+        
+      >
+      <div class="row">
+        @for (book of products.slice(0,8) ; track book.id) {
+          <div class="col-12 col-md-6 col-lg-3 p-3">
+            <div class="book">
+             
+              <figure
+                class="text-center rounded-3 mb-0 bg-body-white position-relative p-4"
+              >
+                <img
+                   style="height: 150px" 
+                  [src]="book.imageUrl"
+                  [alt]="book.name"
+                  width="70%"
+                />
+                <div class="icons-shop position-absolute">
+                  <i 
+                    class="fa-regular fa-heart" 
+                    [ngClass]="{'fa-solid': isInWishlist(book.id), 'fa-heart': true}" 
+                    title="Add To Wishlist" 
+                    [id]="book.id" 
+                    (click)="addOrRemoveToWishlist(book)" 
+                    [style.color]="isInWishlist(book.id) ? 'red' : 'white'">
+                  </i>
+                  <a href="#" routerLink="/cart" class="text-black text-decoration-none">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </a>
+                  <i 
+                    class="fa-regular fa-eye" 
+                    (click)="navigateToBook(book.id)" 
+                    title="Show Book">
+                  </i>
+                </div>
+                
+              </figure>
+             
+              <div class="content mt-3">
+               
+                <h5
+                  class="book-title fw-bold"
+                  (click)="navigateToBook(book.id)"
+                  style="color: var(--blue)"
+                >
+                  {{ book.name }}
+                </h5>
+          
+                <div class="d-flex justify-content-between mt-2">
+             
+                   <p
+                    style="color: var(--orange); font-size: 14px"
+                    class="fw-bold w-fit fs-6"
+                  >
+                  
+                  </p> 
+                  
+                  <div class="ms-auto w-fit fw-medium">
+                    <i
+                      class="fa-solid fa-star"
+                      style="color: var(--star-color)"
+                    ></i>
+                    3.4 (25)
+                  </div>
+                </div>
+                <button
+                  class="btn add-cart-btn w-100" 
+                  (click)="addToCart(book)"
+                 
+                >
+                  <i  class="fa-solid fa-basket-shopping"  ></i> Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      
+      </div>
+    
+   
+    </div>
+    
+    
+   </article>  
+
+</section>
+
+<section class="pb-4 my-4">
+  <div class="container-lg">
+
+    <div class="bg pt-5 rounded-5">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-4">
+            <h2 class="fs-1 fw-bold">Get 25% discount in all kind of super Selling</h2>
+            <a
+            (click)="scrollToTop()"
+            routerLink="/shop"
+            class="btn btn-main rounded-5 px-5 py-3 mt-4"
+            >Shop Now <i class="fa-solid fa-arrow-right-long ms-2"></i>
+          </a>
+
+
+
+          </div>
+          <div class="col-md-5">
+            <img src="assets/images/shoping-1.png" alt="phone" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="shop-sec p-3">
+  <!-- Head Section -->
+  <div class="d-flex justify-content-between">
+    <h2 class="fs-1 fw-bold">Best selling products</h2>
+    <a
+      routerLink="/shop"
+      (click)="scrollToTop()"
+      class="explore-btn btn rounded-5 me-2"
+      >Explore More <i class="fa-solid fa-arrow-right-long ms-2"></i
+    ></a>
+  </div>
+  <!-- Body Section -->
+  <article class="products">
+    <div class="tab-content" id="myTabContent">
+     
+      <div
+        class="tab-pane fade show active"
+        id="fpage-tab-pane"
+        role="tabpanel"
+        aria-labelledby="fpage-tab"
+        tabindex="0"
+
+        
+      >
+      <div class="row">
+        @for (product of products.slice(8,16) ; track product.id) {
+          <div class="col-12 col-md-6 col-lg-3 p-3">
+            <div class="book">
+             
+              <figure
+                class="text-center rounded-3 mb-0 bg-body-white position-relative p-4"
+              >
+                <img
+                   style="height: 150px" 
+                  [src]="product.imageUrl"
+                  [alt]="product.name"
+                  width="70%"
+                />
+                <div class="icons-shop position-absolute">
+                  <i 
+                    class="fa-regular fa-heart" 
+                    [ngClass]="{'fa-solid': isInWishlist(product.id), 'fa-heart': true}" 
+                    title="Add To Wishlist" 
+                    [id]="product.id" 
+                    (click)="addOrRemoveToWishlist(product)" 
+                    [style.color]="isInWishlist(product.id) ? 'red' : 'white'">
+                  </i>
+                  <a href="#" routerLink="/cart" class="text-black text-decoration-none">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </a>
+                  <i 
+                    class="fa-regular fa-eye" 
+                    (click)="navigateToBook(product.id)" 
+                    title="Show Book">
+                  </i>
+                </div>
+                
+              </figure>
+             
+              <div class="content mt-3">
+               
+                <h5
+                  class="book-title fw-bold"
+                  (click)="navigateToBook(product.id)"
+                  style="color: var(--blue)"
+                >
+                  {{ product.name }}
+                </h5>
+          
+                <div class="d-flex justify-content-between mt-2">
+             
+                   <p
+                    style="color: var(--orange); font-size: 14px"
+                    class="fw-bold w-fit fs-6"
+                  >
+                  
+                  </p> 
+                  
+                  <div class="ms-auto w-fit fw-medium">
+                    <i
+                      class="fa-solid fa-star"
+                      style="color: var(--star-color)"
+                    ></i>
+                    3.4 (25)
+                  </div>
+                </div>
+                <button
+                  class="btn add-cart-btn w-100" 
+                  (click)="addToCart(product)"
+                 
+                >
+                  <i  class="fa-solid fa-basket-shopping"  ></i> Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      
+      </div>
+    
+   
+    </div>
+    
+    
+   </article>  
+
+</section>
+
+
+<app-footer></app-footer>
+
+
+ 

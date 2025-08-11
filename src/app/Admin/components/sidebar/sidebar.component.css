@@ -1,0 +1,8 @@
+.sidee{
+    background:   rgb(16 6 97);
+    height: calc(100vh - 0px);
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+

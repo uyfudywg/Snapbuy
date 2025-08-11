@@ -1,0 +1,41 @@
+
+
+<div class="px-5">
+    
+    <div class="mt-5 flex justify-between items-center w-full gap-3 border-b pb-5">
+        <div>
+            <h2 class="text-3xl font-bold tracking-tight">salses ({{totalSales}})</h2>
+            <p class="text-sm text-neutral-500 font-light">
+                Discover our salse.
+            </p>
+        </div>
+    
+    </div>
+    <div   class="box cartBox">
+        <table *ngIf="sales.length> 0" class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th class="text-white" style="background-color:  rgb(16 6 97);"></th>
+                    <th class="text-white" style="background-color:  rgb(16 6 97);">Name</th>
+                    <th class="text-white" style="background-color:  rgb(16 6 97);">Category</th>
+                    <th class="text-white" style="background-color:  rgb(16 6 97);">Price</th>
+                    <th class="text-white" style="background-color:  rgb(16 6 97);">quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of sales; let i = index">
+                    <td><img src="{{item.imageUrl}}" alt=""></td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.category}}</td>
+                    <td>{{item.price}} L.E</td>
+                    <td>{{item.quantity}}</td>
+                </tr>
+               
+            </tbody> 
+        </table>
+       
+      </div>
+
+
+</div>
+

@@ -1,0 +1,18 @@
+<div class="flex dark:bg-main-dark-bg">
+ <!-- <app-sidebar></app-sidebar> -->
+ <app-sidebar (changeComponent)="changeComponent($event)"></app-sidebar>
+ <div class="flex-1 min-h-[100vh]">
+ <app-navber (changeComponent)="changeComponent($event)"></app-navber>
+ <!-- <app-overview></app-overview>
+ <app-orders></app-orders>
+ <app-costomers></app-costomers> -->
+ <app-overview *ngIf="activeComponent === 'overview'"></app-overview>
+ <app-orders *ngIf="activeComponent === 'orders'"></app-orders>
+ <app-costomers *ngIf="activeComponent === 'customers'"></app-costomers>
+ <app-product *ngIf="activeComponent === 'products'"></app-product> 
+ <app-sales *ngIf="activeComponent === 'sales'"></app-sales>
+ <app-favorites *ngIf="activeComponent === 'favorites'"></app-favorites>
+ <app-chat *ngIf="activeComponent === 'chat'"></app-chat>
+
+ </div>
+</div>

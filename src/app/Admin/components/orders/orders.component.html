@@ -1,0 +1,73 @@
+
+
+<div class="mt-5 flex justify-between items-center w-full gap-3 border-black pb-5">
+<div>
+<h2 class="text-3xl font-bold tracking-tight">Orders ({{user.length}})</h2>
+<p class="text-sm text-neutral-500 font-light">
+Manage your orders
+</p>  
+</div>
+    
+</div>
+<table *ngIf="orders.length>0" class="table" style="background-color: #f4f3ef;">
+    <thead class="trtt">
+    <tr class="text-center  bg-black  bg-[#000]">
+    <th style="background-color: rgb(16 6 97);" class="text-md capitalize whitespace-nowrap text-white py-4 px-2 text-center">#ID</th>
+    <th style="background-color:  rgb(16 6 97);" class="text-md capitalize whitespace-nowrap  text-white   py-4 px-2 text-center">Customer Name</th>
+    <th style="background-color: rgb(16 6 97);"class="text-md capitalize whitespace-nowrap  text-white  py-4 px-2 text-center">Email</th>
+    <th style="background-color:  rgb(16 6 97);"class="text-md capitalize whitespace-nowrap text-white py-4 px-2 text-center">City</th>
+    <th style="background-color:  rgb(16 6 97);"class="text-md capitalize whitespace-nowrap text-white  py-4 px-2 text-center">Country</th>
+    <th style="background-color:  rgb(16 6 97);"class="text-md capitalize whitespace-nowrap text-white  py-4 px-2 text-center">phone</th>
+    <th style="background-color:  rgb(16 6 97);"class="text-md capitalize whitespace-nowrap text-white py-4 px-2 text-center">Total Amount</th>
+    <th style="background-color: rgb(16 6 97);;"class="text-md capitalize whitespace-nowrap  text-white py-4 px-2 text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody >
+    <ng-container *ngFor="let item of user; let i = index" >
+    <tr>
+    <td class="text-center  text-black font-normal text-lg py-4 border-b border-black border-t">{{ i + 1 }}</td>
+    <td class="text-center    text-black font-normal text-lg py-4 border-b border-black border-t">
+    <span  class="underline text-lg font-bold">{{item.lastName}} {{item.firstName}}</span>
+    </td>
+    <td class="text-center  text-black font-normal text-lg py-4 border-b border-black border-t">{{ item.email }}</td>
+    <td class="text-center  text-black font-normal text-lg py-4 border-b border-black border-t">{{ item.city }}</td>
+    <td class="text-center  text-black font-normal text-lg py-4 border-b border-black border-t">{{ item.city }}</td>
+    <td class="text-center  text-black font-normal text-lg py-4 border-b border-black border-t">{{ item.phone }}</td>
+    <td class="text-center  text-black font-normal text-lg py-4 border-b border-black border-t">{{ item.totalAmount }}</td>
+    <td class="text-center  text-black font-normal text-lg py-4 border-b border-black border-t"><button class="btn btn-warning "  data-toggle="modal" (click)="toggleDiv(i)" data-target="#viewCart" >Done</button></td>  
+    </tr>
+    <tr>
+    <td colspan="8" *ngIf="orders.length>0">
+    <div class="box mt-5 cartBox"  *ngIf="isVisible[i]">
+    <table class="table table-striped" style="background-color:  rgb(16 6 97);">
+    <thead>
+    <tr class="text-center" style="background-color:  rgb(16 6 97);">
+    <th class="text-white" style="background-color:  rgb(16 6 97);"></th>
+    <th class="text-white" style="background-color:  rgb(16 6 97);">Name</th>
+    <th class="text-white" style="background-color:  rgb(16 6 97);">Price</th>
+    <th class="text-white" style="background-color:  rgb(16 6 97);" >Quantity</th>
+    <th class="text-white" style="background-color:  rgb(16 6 97);">total</th>
+    <th class="text-white" style="background-color:  rgb(16 6 97);">Actions</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let item of orders; let i = index">
+    <td><img src="{{item.imageUrl}}" alt="io"></td>
+    <td>{{item.name}}</td>
+    <td>{{item.price}} L.E</td>
+    <td>{{item.quantity}}</td>
+    <td>{{item.price*item.quantity }} L.E</td>
+    <td><button class="btn btn-warning"  data-toggle="modal" data-target="#viewCart" (click)="addtoSell(item,i)" >Done</button></td>
+    </tr>
+    </tbody> 
+    </table>
+    </div>
+    </td>
+    </tr>
+    </ng-container>
+    <tr>
+    </tbody> 
+
+</table>
+
+

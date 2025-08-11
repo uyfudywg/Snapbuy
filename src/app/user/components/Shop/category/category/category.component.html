@@ -1,0 +1,99 @@
+<section class="row m-0  col-12">
+    <!-- Aside -->
+    <aside class="">
+      <!-- Search -->
+      <div class="search border rounded-3 p-3">
+        <div class="input-group">
+          <input
+            type="search"
+            name="search"
+            placeholder="Search.."
+            class="form-control rounded-end-0 shadow-none"
+          />
+          <button class="btn btn-main">Search</button>
+        </div>
+      </div>
+      <!-- Categories & Product Status & Price Filter & Review -->
+      <article class="row">
+        <!-- Categories -->
+        <div
+          class="categories border rounded-3 p-3 position-relative mt-5 col-12 col-md-5 col-12 col-md-6"
+        >
+          <h5
+            class="position-absolute shadow fw-bold btn-main text-center rounded-3 w-75 top-0 start-50 translate-middle"
+          >
+            Categories
+          </h5>
+          <!-- backpacks -->
+          <div class="content pt-4">
+            <p class="border category rounded-2 p-3" 
+               [class.active]="selectedCategory === 'books'" 
+               (click)="selectCategory('books')">All Product</p>
+            <p class="border category rounded-2 p-3" 
+               [class.active]="selectedCategory === 'house'" 
+               (click)="selectCategory('house')">Electronics</p>
+            <p class="border category rounded-2 p-3" 
+               [class.active]="selectedCategory === 'backpacks'" 
+               (click)="selectCategory('backpacks')">backpacks</p>
+            <p class="border category rounded-2 p-3" 
+               [class.active]="selectedCategory === 'cars'" 
+               (click)="selectCategory('cars')">clothes</p>
+            <p class="border category rounded-2 p-3" 
+               [class.active]="selectedCategory === 'club'" 
+               (click)="selectCategory('club')">Scooter</p>
+          </div>
+          
+        </div>
+        <!-- Product Status & Price Filter & Review -->
+        <div class="col-12 col-md-6 divsCollection">
+          <!-- Product Status -->
+          <div
+            class="product-status border rounded-3 p-3 position-relative mt-5 col-12 col-md-5 w-100"
+          >
+            <h5
+              class="position-absolute shadow fw-bold btn-main text-center rounded-3 w-75 top-0 start-50 translate-middle"
+            >
+              Product Status
+            </h5>
+            <div class="content pt-4">
+              <!-- Stock -->
+              <select
+                name="stock"
+                id="stock"
+                class="form-select p-3 mb-3 shadow-none"
+              >
+                <option value="in-stock">In Stock</option>
+                <option value="castle-in-the-sky">Castle In The Sky</option>
+                <option value="the-hidden-mystery-behind">
+                  The Hidden Mystery Behind
+                </option>
+                <option value="flovely-and-unicom-erna">
+                  Flovely And Unicom Erna
+                </option>
+              </select>
+              <!-- Sale -->
+              <select name="sale" id="sale" class="form-select p-3 shadow-none">
+                <option value="on-sale">On Sale</option>
+                <option value="flovely-and-unicom-erna">
+                  Flovely And Unicom Erna
+                </option>
+                <option value="castle-in-the-sky">Castle In The Sky</option>
+                <option value="how-deal-with-very-bad-book">
+                  How Deal With Very Bad BOOK
+                </option>
+              </select>
+            </div>
+          </div>
+          <!-- Filter By Price -->
+          
+          <!-- By Review -->
+         
+        </div>
+      </article>
+    </aside>
+    <!-- Books -->
+   
+</section>
+
+
+

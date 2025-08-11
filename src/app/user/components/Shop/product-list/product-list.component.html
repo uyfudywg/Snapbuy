@@ -1,0 +1,497 @@
+
+   <!-- <article class="books">
+    <div class="tab-content" id="myTabContent">
+     
+      <div
+        class="tab-pane fade show active"
+        id="fpage-tab-pane"
+        role="tabpanel"
+        aria-labelledby="fpage-tab"
+        tabindex="0"
+      >
+      <div class="row">
+        @for (book of content ; track book.id) {
+          <div class="col-12 col-md-6 col-lg-3 p-3">
+            <div class="book">
+             
+              <figure
+                class="text-center rounded-3 mb-0 bg-body-secondary position-relative p-4"
+              >
+                <img
+                   style="height: 150px" 
+                  [src]="book.imageUrl"
+                  [alt]="book.name"
+                  width="70%"
+                />
+              
+                <div class="icons-shop position-absolute">
+                 
+<i
+class="fa-regular fa-heart"
+[ngClass]="{'fa-solid': isInWishlist(book.id), 'fa-heart': true}"
+title="Add To Wishlist"
+[id]="book.id"
+(click)="addOrRemoveToWishlist(book)"
+[style.color]="isInWishlist(book.id) ? 'red' : 'white'">
+</i>
+                  <a
+                    href="#"
+                    routerLink="/cart"
+                    class="text-black text-decoration-none"
+                  >
+                    <i class="fa-solid fa-shuffle"></i>
+                  </a>
+                  <i
+                    class="fa-regular fa-eye"
+                    (click)="navigateToBook(book.id)"
+                    title="Show Book"
+                  ></i>
+                </div>
+              </figure>
+             
+              <div class="content mt-3">
+               
+                <h5
+                  class="book-title fw-bold"
+                  (click)="navigateToBook(book.id)"
+                  style="color: var(--blue)"
+                >
+                  {{ book.name }}
+                </h5>
+          
+                <div class="d-flex justify-content-between mt-2">
+             
+                   <p
+                    style="color: var(--orange); font-size: 14px"
+                    class="fw-bold w-fit fs-6"
+                  >
+                  
+                  </p> 
+                  
+                  <div class="ms-auto w-fit fw-medium">
+                    <i
+                      class="fa-solid fa-star"
+                      style="color: var(--star-color)"
+                    ></i>
+                    3.4 (25)
+                  </div>
+                </div>
+                <button
+                  class="btn add-cart-btn w-100" 
+                  (click)="addToCart(book)"
+                 
+                >
+                  <i class="fa-solid fa-basket-shopping"  ></i> Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      
+      </div>
+    
+   
+    </div>
+    
+    
+   </article>   -->
+
+
+
+
+
+   <!-- <article class="books">
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="fpage-tab-pane"
+        role="tabpanel"
+        aria-labelledby="fpage-tab"
+        tabindex="0"
+      >
+        <div class="row">
+   
+          <div *ngFor="let book of content.slice((currentPage - 1) * pageSize, currentPage * pageSize); trackBy: trackByBookId" class="col-12 col-md-6 col-lg-3 p-3">
+            <div class="book">
+       
+              <figure class="text-center rounded-3 mb-0 bg-body-secondary position-relative p-4">
+                <img
+                  style="height: 150px" 
+                  [src]="book.imageUrl" 
+                  [alt]="book.name" 
+                  width="70%" 
+                />
+                <div class="icons-shop position-absolute">
+                  <i 
+                    class="fa-regular fa-heart" 
+                    [ngClass]="{'fa-solid': isInWishlist(book.id), 'fa-heart': true}" 
+                    title="Add To Wishlist" 
+                    [id]="book.id" 
+                    (click)="addOrRemoveToWishlist(book)" 
+                    [style.color]="isInWishlist(book.id) ? 'red' : 'white'">
+                  </i>
+                  <a href="#" routerLink="/cart" class="text-black text-decoration-none">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </a>
+                  <i 
+                    class="fa-regular fa-eye" 
+                    (click)="navigateToBook(book.id)" 
+                    title="Show Book">
+                  </i>
+                </div>
+              </figure>
+  
+
+              <div class="content mt-3">
+                <h5 
+                  class="book-title fw-bold" 
+                  (click)="navigateToBook(book.id)" 
+                  style="color: var(--blue)">
+                  {{ book.name }}
+                </h5>
+                
+   
+                <div class="d-flex justify-content-between mt-2">
+                  <div class="ms-auto w-fit fw-medium">
+                    <i class="fa-solid fa-star" style="color: var(--star-color)"></i>
+                    3.4 (25)
+                  </div>
+                </div>
+  
+          
+                <button 
+                  class="btn add-cart-btn w-100" 
+                  (click)="addToCart(book)">
+                  <i class="fa-solid fa-basket-shopping"></i> Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <ul class="nav nav-tabs w-fit mx-auto mt-5 mb-4" id="myTab" role="tablist">
+
+      <li class="nav-item" [class.opacity-0]="currentPage === 1" role="presentation">
+        <button 
+          [disabled]="currentPage === 1" 
+          class="nav-link" 
+          (click)="goToPage(currentPage - 1)">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+      </li>
+      
+
+      <li class="nav-item mx-3" role="presentation">
+        <button class="nav-link active" (click)="goToPage(currentPage)">
+          {{ currentPage }}
+        </button>
+      </li>
+  
+
+      <li class="nav-item" [class.opacity-0]="currentPage === totalPages" role="presentation">
+        <button 
+          [disabled]="currentPage === totalPages" 
+          class="nav-link" 
+          (click)="goToPage(currentPage + 1)">
+          <i class="fa-solid fa-angles-right"></i>
+        </button>
+      </li>
+    </ul>
+  </article> -->
+ 
+  
+  
+  
+  <!-- <article class="books">
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="fpage-tab-pane"
+        role="tabpanel"
+        aria-labelledby="fpage-tab"
+        tabindex="0"
+      >
+        <div class="row">
+       
+          <div *ngFor="let book of getBooksForCurrentPage(); trackBy: trackByBookId" class="col-12 col-md-6 col-lg-3 p-3">
+            <div class="book">
+              <figure class="text-center rounded-3 mb-0 bg-body-secondary position-relative p-4">
+                <img
+                  style="height: 150px" 
+                  [src]="book.imageUrl" 
+                  [alt]="book.name" 
+                  width="70%" 
+                />
+                <div class="icons-shop position-absolute">
+                  <i 
+                    class="fa-regular fa-heart" 
+                    [ngClass]="{'fa-solid': isInWishlist(book.id), 'fa-heart': true}" 
+                    title="Add To Wishlist" 
+                    [id]="book.id" 
+                    (click)="addOrRemoveToWishlist(book)" 
+                    [style.color]="isInWishlist(book.id) ? 'red' : 'white'">
+                  </i>
+                  <a href="#" routerLink="/cart" class="text-black text-decoration-none">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </a>
+                  <i 
+                    class="fa-regular fa-eye" 
+                    (click)="navigateToBook(book.id)" 
+                    title="Show Book">
+                  </i>
+                </div>
+              </figure>
+  
+       
+              <div class="content mt-3">
+                <h5 
+                  class="book-title fw-bold" 
+                  (click)="navigateToBook(book.id)" 
+                  style="color: var(--blue)">
+                  {{ book.name }}
+                </h5>
+                
+           
+                <div class="d-flex justify-content-between mt-2">
+                  <div class="ms-auto w-fit fw-medium">
+                    <i class="fa-solid fa-star" style="color: var(--star-color)"></i>
+                    3.4 (25)
+                  </div>
+                </div>
+  
+               
+                <button 
+                  class="btn add-cart-btn w-100" 
+                  (click)="addToCart(book)">
+                  <i class="fa-solid fa-basket-shopping"></i> Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+   
+    <ul class="nav nav-tabs w-fit mx-auto mt-5 mb-4" id="myTab" role="tablist">
+ 
+      <li class="nav-item" [class.opacity-0]="currentPage === 1" role="presentation">
+        <button 
+          [disabled]="currentPage === 1" 
+          class="nav-link" 
+          (click)="goToPage(currentPage - 1)">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+      </li>
+      
+
+      <li class="nav-item mx-3" role="presentation">
+        <button class="nav-link active" (click)="goToPage(currentPage)">
+          {{ currentPage }}
+        </button>
+      </li>
+  
+  
+      <li class="nav-item" [class.opacity-0]="currentPage === totalPages" role="presentation">
+        <button 
+          [disabled]="currentPage === totalPages" 
+          class="nav-link" 
+          (click)="goToPage(currentPage + 1)">
+          <i class="fa-solid fa-angles-right"></i>
+        </button>
+      </li>
+    </ul>
+  </article> -->
+  <!-- <article class="books">
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="fpage-tab-pane"
+        role="tabpanel"
+        aria-labelledby="fpage-tab"
+        tabindex="0"
+      >
+        <div class="row">
+          <div *ngFor="let book of getBooksForCurrentPage(); trackBy: trackByBookId" class="col-12 col-md-6 col-lg-3 p-3">
+            <div class="book">
+              <figure class="text-center rounded-3 mb-0 bg-body-secondary position-relative p-4">
+                <img
+                  style="height: 150px" 
+                  [src]="book.imageUrl" 
+                  [alt]="book.name" 
+                  width="70%" 
+                />
+                <div class="icons-shop position-absolute">
+                  <i 
+                    class="fa-regular fa-heart" 
+                    [ngClass]="{'fa-solid': isInWishlist(book.id), 'fa-heart': true}" 
+                    title="Add To Wishlist" 
+                    [id]="book.id" 
+                    (click)="addOrRemoveToWishlist(book)" 
+                    [style.color]="isInWishlist(book.id) ? 'red' : 'white'">
+                  </i>
+                  <a href="#" routerLink="/cart" class="text-black text-decoration-none">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </a>
+                  <i 
+                    class="fa-regular fa-eye" 
+                    (click)="navigateToBook(book.id)" 
+                    title="Show Book">
+                  </i>
+                </div>
+              </figure>
+  
+              <div class="content mt-3">
+                <h5 
+                  class="book-title fw-bold" 
+                  (click)="navigateToBook(book.id)" 
+                  style="color: var(--blue)">
+                  {{ book.name }}
+                </h5>
+                
+                <div class="d-flex justify-content-between mt-2">
+                  <div class="ms-auto w-fit fw-medium">
+                    <i class="fa-solid fa-star" style="color: var(--star-color)"></i>
+                    3.4 (25)
+                  </div>
+                </div>
+  
+                <button 
+                  class="btn add-cart-btn w-100" 
+                  (click)="addToCart(book)">
+                  <i class="fa-solid fa-basket-shopping"></i> Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <ul class="nav nav-tabs w-fit mx-auto mt-5 mb-4" id="myTab" role="tablist">
+      <li class="nav-item" [class.opacity-0]="currentPage === 1" role="presentation">
+        <button 
+          [disabled]="currentPage === 1" 
+          class="nav-link" 
+          (click)="goToPage(currentPage - 1)">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+      </li>
+  
+      <li class="nav-item mx-3" role="presentation">
+        <button class="nav-link active" (click)="goToPage(currentPage)">
+          {{ currentPage }}
+        </button>
+      </li>
+  
+      <li class="nav-item" [class.opacity-0]="currentPage === totalPages" role="presentation">
+        <button 
+          [disabled]="currentPage === totalPages" 
+          class="nav-link" 
+          (click)="goToPage(currentPage + 1)">
+          <i class="fa-solid fa-angles-right"></i>
+        </button>
+      </li>
+    </ul>
+  </article> -->
+
+  
+
+  <article class="books">
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="fpage-tab-pane"
+        role="tabpanel"
+        aria-labelledby="fpage-tab"
+        tabindex="0"
+      >
+        <div class="row">
+          <div *ngFor="let product of getBooksForCurrentPage(); trackBy: trackByBookId" class="col-12 col-md-6 col-lg-3 p-3">
+            <div class="book">
+              <figure class="text-center rounded-3 mb-0 bg-body-white position-relative p-4">
+                <img
+                  style="height: 150px" 
+                  [src]="product.imageUrl" 
+                  [alt]="product.name" 
+                  width="70%" 
+                />
+                <div class="icons-shop position-absolute">
+                  <i 
+                    class="fa-regular fa-heart" 
+                    [ngClass]="{'fa-solid': isInWishlist(product.id), 'fa-heart': true}" 
+                    title="Add To Wishlist" 
+                    [id]="product.id" 
+                    (click)="addOrRemoveToWishlist(product)" 
+                    [style.color]="isInWishlist(product.id) ? 'red' : 'white'">
+                  </i>
+                  <a href="#" routerLink="/cart" class="text-black text-decoration-none">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </a>
+                  <i 
+                    class="fa-regular fa-eye" 
+                    (click)="navigateToBook(product.id)" 
+                    title="Show Book">
+                  </i>
+                </div>
+              </figure>
+  
+              <div class="content mt-3">
+                <h5 
+                  class="book-title fw-bold" 
+                  (click)="navigateToBook(product.id)" 
+                  style="color: var(--blue)">
+                  {{ product.name }}
+                </h5>
+                
+                <div class="d-flex justify-content-between mt-2">
+                  <div class="ms-auto w-fit fw-medium">
+                    <i class="fa-solid fa-star" style="color: var(--star-color)"></i>
+                    3.4 (25)
+                  </div>
+                </div>
+  
+                <button 
+                  class="btn add-cart-btn w-100" 
+                  (click)="addToCart(product)">
+                  <i class="fa-solid fa-basket-shopping"></i> Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav nav-tabs w-fit mx-auto mt-5 mb-4" id="myTab" role="tablist">
+      <li class="nav-item" [class.opacity-0]="currentPage === 1" role="presentation">
+        <button 
+          [disabled]="currentPage === 1" 
+          class="nav-link" 
+          (click)="goToPage(currentPage - 1)">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+      </li>
+  
+      <li class="nav-item mx-3" role="presentation">
+        <button class="nav-link active" (click)="goToPage(currentPage)">
+          {{ currentPage }}
+        </button>
+      </li>
+  
+      <li class="nav-item" [class.opacity-0]="currentPage === totalPages" role="presentation">
+        <button 
+          [disabled]="currentPage === totalPages" 
+          class="nav-link" 
+          (click)="goToPage(currentPage + 1)">
+          <i class="fa-solid fa-angles-right"></i>
+        </button>
+      </li>
+    </ul>
+  </article>
+  

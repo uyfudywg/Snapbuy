@@ -1,0 +1,152 @@
+<div class="px-5 pb-10">
+<div class="mt-5">
+<h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
+<p class="text-sm text-neutral-500 font-light">
+Welcome to the dashboard and stay up-to-date with the latest information.
+</p>
+</div>
+<div class="grid-container mt-8">
+<a  (click)="onComponentChange('products')" class="bg-white px-4 pt-4 rounded-lg w-full shadow">
+<div class="flex items-center justify-between">
+<i class="text-[2.5em] font-bold text-[#321fdb]  fa-solid fa-fire"></i>
+<div>
+<span class="text-[#9a9a9a] font-light text-[16px] leading-6">Products</span>
+<p class="text-[2em] text-right">{{products.length||60}}</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-sm text-neutral-500 border-t py-2">
+<i class="fa-solid fa-star"></i>
+New Arrivals
+</div>
+</a>
+<a  (click)="onComponentChange('products')" routerLink="" class="bg-white px-4 pt-4 rounded-lg w-full shadow ">
+<div class="flex items-center justify-between"> 
+<!-- fa-solid fa-clock -->
+<i class="text-[2.5em] font-bold text-[#6c6969] fa-solid fa-dollar-sign "></i>
+<div>
+<span class="text-[#9a9a9a] font-light text-[16px] leading-6">Incomes</span>
+<p class="text-[2em] text-right">{{income}}</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-sm text-neutral-500 border-t py-2">
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+Real-Time Earnings
+</div>
+</a>
+<a (click)="onComponentChange('products')" routerLink="/orders" class="bg-white  px-4 pt-4 rounded-lg w-full shadow">
+<div class="flex items-center justify-between">
+<i class="text-[2.5em] font-bold text-[#39f] fa-solid fa-clock "></i>
+<div>
+<span class="text-[#9a9a9a] font-light text-[16px] leading-6">Orders</span>
+<p class="text-[2em] text-right">{{user.length}}</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-sm text-neutral-500 border-t py-2">
+<i class="fa-solid fa-calendar-days"></i>
+Pending Orders
+</div>
+</a>
+<a  (click)="onComponentChange('products')"routerLink="/customers" class="bg-white px-4 pt-4 rounded-lg w-full shadow">
+<div class="flex items-center justify-between">
+<i class="text-[2.5em] font-bold text-[#052b77] fa-solid fa-users"></i>
+<div>
+<span class="text-[#9a9a9a] font-light text-[16px] leading-6">Customers</span>
+<p class="text-[2em] text-right">{{user.length}}</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-sm text-neutral-500 border-t py-2">
+<i class="fa-solid fa-heart"></i>
+New Customers
+</div>
+</a>
+<a (click)="onComponentChange('products')" routerLink="/customers" class="bg-white px-4 pt-4 rounded-lg w-full shadow">
+<div class="flex items-center justify-between">
+<i class="text-[2.5em] font-bold text-[#cc441a] fa-solid fa-heart"></i>
+<div>
+<span class="text-[#9a9a9a] font-light text-[16px] leading-6">favorites</span>
+<p class="text-[2em] text-right">{{wishlist.length}}</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-sm text-neutral-500 border-t py-2">
+<i class="fa-solid fa-heart"></i>
+New favorites
+</div>
+</a>
+<a routerLink="/customers" class="bg-white px-4 pt-4 rounded-lg w-full shadow">
+<div class="flex items-center justify-between">
+<i class="text-[2.5em] font-bold text-[#f9b115] fa-solid fa-cart-shopping"></i>
+<div>
+<span class="text-[#9a9a9a] font-light text-[16px] leading-6">salse</span>
+<p class="text-[2em] text-right">{{totalSales}}</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-sm text-neutral-500 border-t py-2">
+<i class=" fa-solid fa-cart-shopping"></i>
+New salse
+</div>
+</a>
+</div>
+<div>
+    <img class="mt-5" src="assets/images/figer.jpg" alt="">
+  </div>
+<div class="grid-container-v mt-10">
+<div class="bg-white p-5 rounded-lg shadow">
+<div class="header  flex items-center justify-between">
+<span class="text-xl font-medium">Last 5 products sold</span>
+<i class="cursor-pointer fa-solid fa-minus text-xl font-bold"></i>
+</div>
+
+
+<div class="pt-5">
+<ul>
+<li *ngFor="let item of sales.slice(-5).reverse()">
+<div class="flex items-center py-3 gap-3 justify-between border-t">
+<div class="flex items-center gap-3">
+<img class="h-[40px] w-[40px] rounded-full object-cover" [src]="item.imageUrl" alt="">
+<div class="flex flex-col gap-1 items-start ">
+<a class="text-lg font-medium">{{ item.name }}</a>
+<span class="text-sm text-slate-600"> </span>
+</div>
+</div>
+<div>
+<button 
+style="background-color: rgb(16 6 97);"
+class="px-4 py-2 text-white rounded-lg font-medium"> delete </button>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-white  p-5 rounded-lg shadow">
+<div class="header  flex items-center justify-between">
+<span class="text-xl font-medium">Last 5 Customers</span>
+<i class="cursor-pointer fa-solid fa-minus text-xl font-bold"></i>
+</div>
+<div class="pt-5">
+<ul>
+<li *ngFor="let customer of user.slice(-5).reverse()">
+<div class="flex items-center py-3 gap-3 justify-between border-t">
+<div class="flex items-center gap-3">
+<img class="h-[40px] w-[40px] rounded-full object-cover" src="assets/images/user/user-77.jpeg" alt="image"
+alt="">
+<div class="flex flex-col gap-1 items-start ">
+<a class="text-lg font-medium">{{ customer.firstName }} {{customer.lastName}}</a>
+<span class="text-sm text-slate-600">
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1 ">
+<button 
+style="background-color: rgb(16 6 97);"
+class=" px-4 py-2 text-white rounded-lg font-medium"> delete </button>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+  
+
+</div>

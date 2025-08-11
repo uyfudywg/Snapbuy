@@ -1,0 +1,25 @@
+:host {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(7, 7, 77);
+}
+
+.main-section {
+    padding-top: 70px;
+   
+}
+
+.btn-up {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    height: 40px;
+    width: 40px;
+    border: 2px solid aqua ; /* Replace $main-color with the actual color */
+    font-size: 25px;
+    border-radius: 10px;
+    color: royalblue; /* Replace $main-color with the actual color */
+    background-color: #ffffff;
+}

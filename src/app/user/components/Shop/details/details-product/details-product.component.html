@@ -1,0 +1,72 @@
+<main class="container-fluid my-4">
+    <section class="book row py-5 px-2">
+      <!-- Image -->
+      <div class="image col-12 col-lg-5">
+        <!-- Current product -->
+        <figure class="rounded-4 border bg-body-tertiary p-4 p-lg-5">
+          <img
+            [src]="productDetails.imageUrl"
+            [alt]="productDetails.name"
+          />
+        </figure>
+        <!-- Other Books -->
+        <div class="other-books mt-4 row p-2">
+         
+        </div>
+      </div>
+      <!-- Content -->
+      <article class="content col-12 col-lg-7 pt-md-0 p-4 p-lg-5 pt-lg-0">
+        <!-- Title -->
+        <h2 class="fw-bold">{{ productDetails.name }}</h2>
+        <!-- Review -->
+        <div class="review mt-3">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star mx-1"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star mx-1"></i>
+          <i class="fa-regular fa-star me-2"></i>
+          <span class="fw-medium">(100 Customer Reviews)</span>
+        </div>
+        <!-- Description -->
+        <p class="mt-3 description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar,
+          tortor quis varius pretium est felis scelerisque nulla, vitae placerat
+          justo nunc a massa. Aenean nec montes vestibulum urna vel imperdiet
+          ipsum. Orci varius natoque penatibus et magnis dis ridicul parturient
+          montes.
+        </p>
+        <!-- Price -->
+        <strong class="fs-2 price">{{
+          productDetails.price
+            | currency : "EGP" : "symbol-narrow"
+        }}</strong>
+        <!-- Qunatity & Read A Little & Add to cart & whishlist -->
+        <div class="row mt-4 align-items-center btns pb-3">
+        
+        </div>
+        <hr />
+        <div class="p-2 rounded-4 border book-category mt-4">
+          <ul class="bg-body-tertiary rounded-4 list-unstyled p-2 py-4 row m-0">
+            <li class="col-12 col-lg-5 mb-3">
+              <i class="fa-solid fa-check me-1 text-success"></i> Free shipping
+              orders from $150
+            </li>
+            <li class="col-12 col-lg-7 mb-3">
+              <i class="fa-solid fa-check me-1 text-success"></i> Mamaya Flash
+              Discount: Starting at 30% Off
+            </li>
+            <li class="col-12 col-lg-5 mb-3 mb-lg-0">
+              <i class="fa-solid fa-check me-1 text-success"></i> 30 days exchange
+              & return
+            </li>
+            <li class="col-12 col-lg-7">
+              <i class="fa-solid fa-check me-1 text-success"></i> Safe & Secure
+              online shopping
+            </li>
+          </ul>
+        </div>
+        <!-- Also Available On -->
+        
+      </article> 
+    </section> 
+  </main>

@@ -1,0 +1,58 @@
+ 
+   <div class="try" >
+  <!-- <div *ngFor="let chat of messageGroups | keyvalue" class="chat-container">
+    <div class=" messages-container chat">
+      <div class="user-info">
+        <img src="assets/images/user/user-77.jpeg" alt="User Image" />
+        <h4>{{ chat.key }}</h4>
+      </div>
+  
+      <div *ngFor="let msg of chat.value" class="message user-message">
+        <p>{{ msg.message }}</p>
+        <span class="message-time">{{ msg.time }}</span> 
+      </div>
+    </div>
+  </div> -->
+  <div class="chat-container">
+    <div class=" messages-container chat">
+      <div class="user-info">
+        <img src="assets/images/user/user-77.jpeg" alt="User Image" />
+        <h4>admin</h4>
+      </div>
+      <div class="message user-message">
+        <p>Welcome to SnapBuy! 🛒🎉<br>
+          We’re here to help you find the best products and deals. Whether you’re looking for something specific or need assistance choosing the perfect item, we’ve got you covered!<br><br>
+          📦 Explore our wide range of products and enjoy a smooth and secure shopping experience. <br>
+          💬 If you need any help or have any questions, feel free to ask!<br><br>
+          Happy shopping! 💖</p>
+        <span class="message-time"> </span> 
+      </div>
+    </div>
+    <div *ngFor="let chat of messageGroups | keyvalue" >
+      <div class=" messages-container chat">
+        <div class="user-info">
+          <img src="assets/images/user/user-77.jpeg" alt="User Image" />
+          <h4>{{ chat.key }}</h4>
+        </div>
+    
+        <div *ngFor="let msg of chat.value" class="message user-message">
+          <p>{{ msg.message }}</p>
+          <span class="message-time">{{ msg.time }}</span> 
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  </div>
+  
+  <div class="input-container">
+    <input [(ngModel)]="message" placeholder="Type your message" />
+    <button (click)="sendMessage();addNo()">Send</button>
+  </div>
+  
+  
+  

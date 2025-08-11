@@ -1,0 +1,26 @@
+span {
+    color:#16086b;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.borders-bottom{
+    border-bottom: 1px #16086b solid;
+}
+h3{
+    color:#16086b;
+    font-size: 26px;
+    font-weight: bolder;
+    padding-bottom: 5px;
+  
+}
+
+.about {
+    padding: 80px 0px;
+    background-image:linear-gradient(rgb(16 6 97) 50% , rgb(16 6 97) 50%);
+    background-size: cover;
+    /* background-attachment: fixed; */
+    /* background-position: center center; */
+    }
+/*
+    url('../src/assets/MAR15_12_e-comm.png')*/

@@ -1,1 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
+@import "swiper/swiper-bundle.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.2s linear 0s;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --light-main-color: #d0e1e7;
+  --main-color: #036280;
+  --blue: #012e4a;
+  --white: #fff;
+  --black: #000;
+  --orange: #ff6500;
+  --star-color: #ffa41b;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.btn-main {
+  background-color:   rgb(16 6 97) !important;
+  color: var(--white) !important;
+  font-weight: 700 !important;
+  padding: 10px 20px !important;
+  font-size: 18px !important;
+}
+
+.btn-main:hover {
+  background-color: var(--orange) !important;
+}
+
+/* Next and previous buttons of swiper */
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: var(--white);
+  z-index: 3;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border: 1px solid var(--white);
+  opacity: 0;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  background-color: var(--orange) !important;
+}
+
+.custom-prev {
+  left: 5px;
+}
+
+.custom-next {
+  right: 5px;
+}
+
+/* Style the scrollbar track (background) */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #82b1c0;
+}
+
+/* Style the scrollbar handle (the thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  height: 50px;
+}
+
+.add-cart-btn {
+  background-color: rgb(16 6 97)  !important;
+  color: #fff !important;
+  padding: 10px 20px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+}
+
+/* Public health service publication */
+.add-cart-btn:hover {
+  background-color: var(--orange) !important;
+  color: var(--white) !important;
+}
+
+i[title="Add To Wishlist"].fa-solid {
+  color: red;
+}
+
+
+
+body{
+    margin: 0;
+    padding:0;
+    font-family: "Open Sans", sans-serif;
+    background-color: #f4f3ef
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --primary-clr: #ff6b6b;
+    --secondary-clr: #794afa;
+    --secondary-dark:   rgb(16 6 97);;
+    --white-clr: #fff;
+    --light-bg-clr: #f2f3f5;
+    --light-txt-clr: #7c899a;
+    --border-clr: #e5e8ec;
+    --dark-clr:   rgb(16 6 97);;
+}
+
+/* For WebKit Browsers (Chrome and Safari) */
+/* Track */
+::-webkit-scrollbar {
+    width: 6px; /* Set the width of the scrollbar */
+    
+  }
+  
+  /* Thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background: #000000; /* Set the color of the scrollbar thumb */
+    border-radius: 25px;
+    height: 150px;
+  }
+  
+  /* Track (the area behind the thumb) */
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Set the color of the scrollbar track */
+  }
+  
+
+  
+  /* Set smooth scrolling behavior */
+  body {
+    scroll-behavior: smooth;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

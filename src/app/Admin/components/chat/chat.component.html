@@ -1,0 +1,23 @@
+
+  <div chat>
+  <div class=" try" >
+  <div *ngFor="let chat of messageGroups | keyvalue" class="chat-container container">
+    <div class="messages-containe chat">
+      <div class="user-info">
+        <img src="assets/images/user/user-77.jpeg" alt="Admin Image" />
+        <h4>{{ chat.key }}</h4>
+      </div>
+  
+      <div *ngFor="let msg of chat.value" class="message admin-message">
+        <p>{{ msg.message }}</p>
+        <span class="message-time">{{ msg.time }}</span>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+  <div class="input-container">
+    <input [(ngModel)]="message" placeholder="Type your message" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
